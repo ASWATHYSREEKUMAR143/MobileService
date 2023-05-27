@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="6" name="Suite" parallel="tests">
+  <test name="Test1">
+  <parameter name="browserName" value="chrome"> </parameter>
+    <classes>
+     <!--  <class name="com.test.CustomersPageTest"/>
+      <class name="com.test.OrderAndReparationPageTest"/>
+      <class name="com.test.HomePageTest"/>
+      <class name="com.test.QuantityAlertPageTest"/>-->
+      <class name="com.test.LoginTest"/>
+    </classes>
+  </test> 
+  <test name="Test2">
+    <parameter name="browserName" value="edge"> </parameter>
+    <classes>
+      <!-- <class name="com.test.CustomersPageTest"/>
+      <class name="com.test.OrderAndReparationPageTest"/>
+      <class name="com.test.HomePageTest"/>
+      <class name="com.test.QuantityAlertPageTest"/>-->
+      <class name="com.test.LoginTest"/>
+    </classes>
+  </test> <!-- Test -->
+  
+  <test name="Test3">
+    <parameter name="browserName" value="firefox"> </parameter>
+    <classes>
+     <!--  <class name="com.test.CustomersPageTest"/>
+      <class name="com.test.OrderAndReparationPageTest"/>
+      <class name="com.test.HomePageTest"/>
+      <class name="com.test.QuantityAlertPageTest"/>-->
+      <class name="com.test.LoginTest"/>
+    </classes>
+  </test> 
+</suite> <!-- Suite -->

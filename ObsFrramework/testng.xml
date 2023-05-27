@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="classes">
+	<listeners>
+	 <listener class-name="com.listeners.TestListeners" /> 
+	</listeners> 
+
+	<test name="Test">
+		<parameter name="browserName" value="chrome">
+		</parameter>
+		<classes>
+			<!--<class name="com.test.LoginTest"/>-->
+			 <class name="com.test.HomePageTest"/>
+			<!--<class name="com.test.QuantityAlertPageTest"/>
+			<class name="com.test.OrderAndReparationPageTest"/>
+			<class name="com.test.CustomersPageTest" />
+			<class name="com.test.InventoryPageTest" />-->
+
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="6" name="Suite" parallel="methods">
+  <test name="Test">
+  <parameter name="browserName" value="chrome"> </parameter>
+    <classes>
+      <!-- <class name="com.test.LoginTest"/>
+      <class name="com.test.HomePageTest"/>
+       <class name="com.test.QuantityAlertPageTest"/>
+        <class name="com.test.OrderAndReparationPageTest"/>-->
+     
+     <class name="com.test.CustomersPageTest"/>
+     
+      
+     
+    
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
