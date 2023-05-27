@@ -76,8 +76,8 @@ public class AutomationBase {
 		driver = new FirefoxDriver();
 	}
 
-	/*public static WebDriver getDriver() {
+	public  WebDriver getDriver() {
 
 		return driver;
-	}*/
+	}
 }
