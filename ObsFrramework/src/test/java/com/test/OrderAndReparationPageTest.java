@@ -25,7 +25,7 @@ public class OrderAndReparationPageTest extends AutomationBase {
 	GenericUtils generic;
 	OrderAndReparationPage orderandreparation;
 	
-	@Test(enabled =false, priority = 1)
+	@Test(enabled =true, priority = 1)
 	public void validateOrderAndReparationPage() {
 		login = new LoginPage(driver);
 		home = new HomePage(driver);
@@ -54,7 +54,7 @@ public class OrderAndReparationPageTest extends AutomationBase {
 		soft.assertAll();
 	}
 
-	@Test(enabled = false, priority = 3)
+	@Test(enabled = true, priority = 2)
 	public void validateFilterResultPage() {
 		login = new LoginPage(driver);
 		home = new HomePage(driver);
@@ -84,7 +84,7 @@ public class OrderAndReparationPageTest extends AutomationBase {
 		soft.assertAll();
 	}
 
-	@Test(enabled =true, priority = 2)
+	@Test(enabled =true, priority = 3)
 	public void validateStatusUpdation() {
 		login = new LoginPage(driver);
 		home = new HomePage(driver);
@@ -109,7 +109,7 @@ public class OrderAndReparationPageTest extends AutomationBase {
 
 	}
 
-	@Test(enabled = false, priority = 4)
+	@Test(enabled = true, priority = 4)
 	public void validateAddReparation() {
 		login = new LoginPage(driver);
 		home = new HomePage(driver);
@@ -186,7 +186,7 @@ public class OrderAndReparationPageTest extends AutomationBase {
 
 	}
 
-	@Test(enabled =false, priority = 5)
+	@Test(enabled =true, priority = 5)
 	public void validatePaymentDetailsPage() {
 		login = new LoginPage(driver);
 		home = new HomePage(driver);
@@ -220,7 +220,7 @@ public class OrderAndReparationPageTest extends AutomationBase {
 
 	}
 
-	@Test(enabled = false, priority = 6, retryAnalyzer = com.analyzer.RetryAnalyzer.class) // not worked
+	@Test(enabled = true, priority = 6, retryAnalyzer = com.analyzer.RetryAnalyzer.class) // not worked
 	public void validateAddAttachment() throws AWTException {
 		login = new LoginPage(driver);
 		home = new HomePage(driver);
@@ -249,7 +249,7 @@ public class OrderAndReparationPageTest extends AutomationBase {
 		soft.assertAll();
 	}
 
-	@Test(enabled = false, priority = 7)
+	@Test(enabled = true, priority = 7)
 	public void validateEmailInvoiceAction() {
 		login = new LoginPage(driver);
 		home = new HomePage(driver);
@@ -279,7 +279,7 @@ public class OrderAndReparationPageTest extends AutomationBase {
 		soft.assertAll();
 	}
 
-	@Test(enabled = false, priority = 8, retryAnalyzer = com.analyzer.RetryAnalyzer.class)
+	@Test(enabled = true, priority = 8, retryAnalyzer = com.analyzer.RetryAnalyzer.class)
 	public void validateColumnVisibilityInReparationTable() {
 		login = new LoginPage(driver);
 		home = new HomePage(driver);
