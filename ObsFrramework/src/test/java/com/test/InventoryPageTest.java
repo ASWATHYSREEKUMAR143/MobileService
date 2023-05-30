@@ -1,13 +1,9 @@
 package com.test;
 
 import java.util.Properties;
-
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-
 import com.base.AutomationBase;
 import com.constants.AutomationConstants;
 import com.pages.HomePage;
@@ -20,9 +16,6 @@ import com.utilities.WaitUtils;
 import com.utilities.WebBrowserUtils;
 
 public class InventoryPageTest extends AutomationBase {
-
-
-	//WebDriver driver;
 	LoginPage login;
 	HomePage home;
 	WebBrowserUtils webbrowser;
@@ -32,27 +25,11 @@ public class InventoryPageTest extends AutomationBase {
 	PropertyUtils propertyutil;
 	Properties prop;
 	ExcelUtils excelutils;
-	/*	@BeforeMethod
-		public void preRun() throws Exception
-		{
-			//driver=getDriver();
-			login=new LoginPage(driver);
-			webbrowser=new WebBrowserUtils();
-			home=new HomePage(driver);
-			inventorypp=new InventoryPage(driver);
-			propertyutil = new PropertyUtils();
-			prop = PropertyUtils.getProperty("config.properties");
-			excelutils = new ExcelUtils();
-			home = login.login(prop.getProperty("username"), prop.getProperty("password"));
-			inventorypp=home.navigateToInventoryPage();
-			wait.toApplyImplicitWait(driver, 10);
-		}*/
 		
-@Test(enabled=false,priority=1)
+@Test(enabled=true,priority=1,groups=("smoke"))
 public void validateInventoryPage()  
 {
 	login=new LoginPage(driver);
-	//webbrowser=new WebBrowserUtils();
 	home=new HomePage(driver);
 	inventorypp=new InventoryPage(driver);
 	propertyutil = new PropertyUtils();
@@ -87,11 +64,10 @@ public void validateInventoryPage()
 	soft.assertAll();	
 }
 
-@Test(enabled=false,priority=2)
+@Test(enabled=true,priority=2)
 public void validateActionsIconInInventoryPage()
 {
 	login=new LoginPage(driver);
-	//webbrowser=new WebBrowserUtils();
 	home=new HomePage(driver);
 	inventorypp=new InventoryPage(driver);
 	propertyutil = new PropertyUtils();
@@ -121,11 +97,10 @@ public void validateActionsIconInInventoryPage()
 	soft.assertAll();	
 }
 
-@Test(enabled=false,priority=3)
-public void validateAddProductFunctionalityInActionsIconInInventoryPage() //wrkd
+@Test(enabled=true,priority=3)
+public void validateAddProductFunctionalityInActionsIconInInventoryPage()
 {
 	login=new LoginPage(driver);
-	//webbrowser=new WebBrowserUtils();
 	home=new HomePage(driver);
 	inventorypp=new InventoryPage(driver);
 	propertyutil = new PropertyUtils();
@@ -169,11 +144,10 @@ public void validateAddProductFunctionalityInActionsIconInInventoryPage() //wrkd
 	soft.assertAll();
 }
 
-@Test(enabled=false,priority=4)
+@Test(enabled=true,priority=4)
 public void validateEditProductFunctionalityInInventoryPage()
 {
 	login=new LoginPage(driver);
-	//webbrowser=new WebBrowserUtils();
 	home=new HomePage(driver);
 	inventorypp=new InventoryPage(driver);
 	propertyutil = new PropertyUtils();
@@ -208,11 +182,10 @@ public void validateEditProductFunctionalityInInventoryPage()
 	inventorypp.toCloseEditPage();
 	soft.assertAll();
 }
-@Test(enabled=false,priority=5)//wrkd
+@Test(enabled=true,priority=5,retryAnalyzer = com.analyzer.RetryAnalyzer.class)
 public void validateDuplicateProductFunctionalityInInventoryPage()
 {
 	login=new LoginPage(driver);
-	//webbrowser=new WebBrowserUtils();
 	home=new HomePage(driver);
 	inventorypp=new InventoryPage(driver);
 	propertyutil = new PropertyUtils();
@@ -239,11 +212,10 @@ public void validateDuplicateProductFunctionalityInInventoryPage()
 	soft.assertAll();
 }
 
-@Test(enabled=false,priority=6)//wrkd
+@Test(enabled=true,priority=6,groups=("smoke"))
 public void validateEditProductFunctionalityFromActionsDropdownInInventoryPage()
 {
 	login=new LoginPage(driver);
-	//webbrowser=new WebBrowserUtils();
 	home=new HomePage(driver);
 	inventorypp=new InventoryPage(driver);
 	propertyutil = new PropertyUtils();
@@ -268,11 +240,10 @@ public void validateEditProductFunctionalityFromActionsDropdownInInventoryPage()
 	soft.assertEquals(inventorypp.toGetPriceInInventoryTableOfRowOne(),"40,000.00", AutomationConstants.UpdateCheck);
 	soft.assertAll();
 }
-@Test(enabled=false,priority=7)//wrkd
+@Test(enabled=true,priority=7)
 public void validateDeleteProductFunctionalityFromActionsDropdownInInventoryPage()
 {
 	login=new LoginPage(driver);
-	//webbrowser=new WebBrowserUtils();
 	home=new HomePage(driver);
 	inventorypp=new InventoryPage(driver);
 	propertyutil = new PropertyUtils();
@@ -292,7 +263,6 @@ public void validateDeleteProductFunctionalityFromActionsDropdownInInventoryPage
 public void validateDeleteProductFunctionalityFromActionsIconInInventoryPage()
 {
 	login=new LoginPage(driver);
-	//webbrowser=new WebBrowserUtils();
 	home=new HomePage(driver);
 	inventorypp=new InventoryPage(driver);
 	propertyutil = new PropertyUtils();
