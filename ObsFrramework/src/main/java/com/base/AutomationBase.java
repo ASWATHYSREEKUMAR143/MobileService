@@ -1,14 +1,13 @@
 package com.base;
 
-import java.io.IOException;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.BeforeGroups;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
 import com.constants.AutomationConstants;
@@ -34,6 +33,17 @@ public class AutomationBase {
 		prop = PropertyUtils.getProperty("config.properties");
 		webbrowser.launchUrl(driver, prop.getProperty("url"));
 		webbrowser.toMaximizeWindow(driver);
+	}
+	@BeforeGroups("smoke")
+	@Parameters("browserName")
+	public void grouping(String browserName) {
+		launchBrowser(browserName);
+		login = new LoginPage(driver);
+		webbrowser = new WebBrowserUtils();
+		propertyutil = new PropertyUtils();
+		prop = PropertyUtils.getProperty("config.properties");
+		webbrowser.launchUrl(driver, prop.getProperty("url"));
+	    webbrowser.toMaximizeWindow(driver);
 	}
 
 	public void launchBrowser(String browserName) {
