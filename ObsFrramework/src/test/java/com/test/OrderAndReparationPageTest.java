@@ -2,13 +2,9 @@ package com.test;
 
 import java.awt.AWTException;
 import java.util.Properties;
-
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-
 import com.base.AutomationBase;
 import com.constants.AutomationConstants;
 import com.pages.HomePage;
@@ -18,53 +14,24 @@ import com.utilities.ExcelUtils;
 import com.utilities.GenericUtils;
 import com.utilities.PropertyUtils;
 import com.utilities.WaitUtils;
-import com.utilities.WebBrowserUtils;
 
 public class OrderAndReparationPageTest extends AutomationBase {
-
-	//WebDriver driver;
-
-	WebBrowserUtils webbrowser;
 	WaitUtils wait;
-
 	LoginPage login;
 	HomePage home;
 	PropertyUtils propertyutil;
 	Properties prop;
-	AutomationConstants constants;
 	ExcelUtils excelutils;
 	GenericUtils generic;
-
 	OrderAndReparationPage orderandreparation;
-
-/*	@BeforeMethod
-	public void preRun() throws Exception {
-		//driver = getDriver();
-		login = new LoginPage(driver);
-		webbrowser = new WebBrowserUtils();
-		home = new HomePage(driver);
-		orderandreparation = new OrderAndReparationPage(driver);
-		wait = new WaitUtils();
-		constants = new AutomationConstants();
-		propertyutil = new PropertyUtils();
-		generic=new GenericUtils();
-		prop = PropertyUtils.getProperty("config.properties");
-		excelutils = new ExcelUtils();
-		home = login.login(prop.getProperty("username"), prop.getProperty("password"));
-		orderandreparation = home.navigateToOrderAndReparation();
-		wait.toApplyImplicitWait(driver, 10);
-	}*/
-
-	@Test(enabled = false, priority = 1)
+	
+	@Test(enabled =false, priority = 1)
 	public void validateOrderAndReparationPage() {
 		login = new LoginPage(driver);
-		webbrowser = new WebBrowserUtils();
 		home = new HomePage(driver);
 		orderandreparation = new OrderAndReparationPage(driver);
 		wait = new WaitUtils();
-		constants = new AutomationConstants();
 		propertyutil = new PropertyUtils();
-		generic=new GenericUtils();
 		prop = PropertyUtils.getProperty("config.properties");
 		excelutils = new ExcelUtils();
 		home = login.login(prop.getProperty("username"), prop.getProperty("password"));
@@ -85,19 +52,15 @@ public class OrderAndReparationPageTest extends AutomationBase {
 		orderandreparation.clickOnExcelDwnldIcn();
 		soft.assertTrue(orderandreparation.isExcelDwnldIcnEnabled(), "Failure message : Excel downloading is failed ");
 		soft.assertAll();
-
 	}
 
 	@Test(enabled = false, priority = 3)
 	public void validateFilterResultPage() {
 		login = new LoginPage(driver);
-		webbrowser = new WebBrowserUtils();
 		home = new HomePage(driver);
 		orderandreparation = new OrderAndReparationPage(driver);
 		wait = new WaitUtils();
-		constants = new AutomationConstants();
 		propertyutil = new PropertyUtils();
-		generic=new GenericUtils();
 		prop = PropertyUtils.getProperty("config.properties");
 		excelutils = new ExcelUtils();
 		home = login.login(prop.getProperty("username"), prop.getProperty("password"));
@@ -119,19 +82,15 @@ public class OrderAndReparationPageTest extends AutomationBase {
 		soft.assertEquals(orderandreparation.getTheTextFromRow(), "No data available in table",
 				AutomationConstants.ResultCheck);
 		soft.assertAll();
-
 	}
 
-	@Test(enabled = false, priority = 2)
+	@Test(enabled =true, priority = 2)
 	public void validateStatusUpdation() {
 		login = new LoginPage(driver);
-		webbrowser = new WebBrowserUtils();
 		home = new HomePage(driver);
 		orderandreparation = new OrderAndReparationPage(driver);
 		wait = new WaitUtils();
-		constants = new AutomationConstants();
 		propertyutil = new PropertyUtils();
-		generic=new GenericUtils();
 		prop = PropertyUtils.getProperty("config.properties");
 		excelutils = new ExcelUtils();
 		home = login.login(prop.getProperty("username"), prop.getProperty("password"));
@@ -153,11 +112,9 @@ public class OrderAndReparationPageTest extends AutomationBase {
 	@Test(enabled = false, priority = 4)
 	public void validateAddReparation() {
 		login = new LoginPage(driver);
-		webbrowser = new WebBrowserUtils();
 		home = new HomePage(driver);
 		orderandreparation = new OrderAndReparationPage(driver);
 		wait = new WaitUtils();
-		constants = new AutomationConstants();
 		propertyutil = new PropertyUtils();
 		generic=new GenericUtils();
 		prop = PropertyUtils.getProperty("config.properties");
@@ -199,27 +156,22 @@ public class OrderAndReparationPageTest extends AutomationBase {
 		orderandreparation.toSelectClientFromDropDown(excelutils.readIntegerData("OrderAndReparation", 15, 2)); // 2
 		orderandreparation.enterValueToCategoryField(excelutils.readStringData("OrderAndReparation", 16, 2)); // "note"
 		orderandreparation.toSelectTaxRateFromDropDown(excelutils.readStringData("OrderAndReparation", 17, 2)); // "VAT"
-		orderandreparation.toSelectAssignedToFromDropDown(excelutils.readStringData("OrderAndReparation", 18, 2));// "Joe
-																													// Jacobs"
+		orderandreparation.toSelectAssignedToFromDropDown(excelutils.readStringData("OrderAndReparation", 18, 2));// "Joe																													// Jacobs"
 		orderandreparation.enterValueToManufacturerField(excelutils.readStringData("OrderAndReparation", 19, 2)); // "Samsung"
-		orderandreparation.enterValueToModelField(excelutils.readStringData("OrderAndReparation", 20, 2)); // "notebook
-																											// 15"
-		orderandreparation.enterValueToDefectField(excelutils.readStringData("OrderAndReparation", 21, 2)); // "display
-																											// issue"
+		orderandreparation.enterValueToModelField(excelutils.readStringData("OrderAndReparation", 20, 2)); // "notebook																											// 15"
+		orderandreparation.enterValueToDefectField(excelutils.readStringData("OrderAndReparation", 21, 2)); // "display																										// issue"
 		orderandreparation.toSelectErrorCodeFromDropDown(excelutils.readIntegerData("OrderAndReparation", 22, 2)); // 0
 		orderandreparation.enterValueToServiceChargesField(excelutils.readStringData("OrderAndReparation", 23, 2)); // "1500"
 		orderandreparation.enterValueToExpectedCloseDateField(excelutils.readStringData("OrderAndReparation", 24, 2)); // "02-05-2023"
 		orderandreparation.enterValueToPurchaseDateField(excelutils.readStringData("OrderAndReparation", 25, 2)); // "05-01-2023"
-		orderandreparation.toSelectHasWarrantyField(excelutils.readStringData("OrderAndReparation", 26, 2)); // "In
-																												// Warranty"
+		orderandreparation.toSelectHasWarrantyField(excelutils.readStringData("OrderAndReparation", 26, 2)); // "In	// Warranty"
 		orderandreparation.toSelectWarrantyField(excelutils.readStringData("OrderAndReparation", 27, 2));// "4 Month"
 		String warrantycrdnmbr=generic.generateAlphaNumericData(6);
 		orderandreparation.enterValueToWarrantyCardNmbrField(warrantycrdnmbr); // "134526"//excelutils.readStringData("OrderAndReparation", 28, 2)
 	String repairtype=generic.generateAlphabeticData(6);
 		orderandreparation.enterValueToRepairTypeField(repairtype); // "gdghff"//excelutils.readStringData("OrderAndReparation", 29, 2)
 		orderandreparation.enterValueToClientRecieveDateField(excelutils.readStringData("OrderAndReparation", 30, 2)); // "15-04-2023"
-		orderandreparation.enterValueToAddItemField(excelutils.readStringData("OrderAndReparation", 31, 2)); // "screen
-																												// guard"
+		orderandreparation.enterValueToAddItemField(excelutils.readStringData("OrderAndReparation", 31, 2)); // "screen// guard"
 		orderandreparation.clickOnAddReparationTab();
 		orderandreparation.toHandlePrintPage();
 		String repcode = orderandreparation.getTheTextFromReparationCodeFld();
@@ -234,16 +186,13 @@ public class OrderAndReparationPageTest extends AutomationBase {
 
 	}
 
-	@Test(enabled = false, priority = 5)
+	@Test(enabled =false, priority = 5)
 	public void validatePaymentDetailsPage() {
 		login = new LoginPage(driver);
-		webbrowser = new WebBrowserUtils();
 		home = new HomePage(driver);
 		orderandreparation = new OrderAndReparationPage(driver);
 		wait = new WaitUtils();
-		constants = new AutomationConstants();
 		propertyutil = new PropertyUtils();
-		generic=new GenericUtils();
 		prop = PropertyUtils.getProperty("config.properties");
 		excelutils = new ExcelUtils();
 		home = login.login(prop.getProperty("username"), prop.getProperty("password"));
@@ -271,23 +220,19 @@ public class OrderAndReparationPageTest extends AutomationBase {
 
 	}
 
-	@Test(enabled = true, priority = 6, retryAnalyzer = com.analyzer.RetryAnalyzer.class) // not worked
+	@Test(enabled = false, priority = 6, retryAnalyzer = com.analyzer.RetryAnalyzer.class) // not worked
 	public void validateAddAttachment() throws AWTException {
 		login = new LoginPage(driver);
-		webbrowser = new WebBrowserUtils();
 		home = new HomePage(driver);
 		orderandreparation = new OrderAndReparationPage(driver);
 		wait = new WaitUtils();
-		constants = new AutomationConstants();
 		propertyutil = new PropertyUtils();
-		generic=new GenericUtils();
 		prop = PropertyUtils.getProperty("config.properties");
 		excelutils = new ExcelUtils();
 		home = login.login(prop.getProperty("username"), prop.getProperty("password"));
 		orderandreparation = home.navigateToOrderAndReparation();
 		wait.toApplyImplicitWait(driver, 10);
 		SoftAssert soft = new SoftAssert();
-
 		orderandreparation.searchCode(excelutils.readStringData("OrderAndReparation", 34, 2));
 		orderandreparation.clickOnTheActionsButton();
 		soft.assertTrue(orderandreparation.isViewAttachmentsoptionDisplayed(), AutomationConstants.FieldCheck);
@@ -302,19 +247,15 @@ public class OrderAndReparationPageTest extends AutomationBase {
 		soft.assertTrue(orderandreparation.isDoneProgressBarDisplayed(), "Failure message :Failed to attach the file");
 		orderandreparation.clickOnFAttachmentCloseBtn(); // NOT WORKED
 		soft.assertAll();
-
 	}
 
 	@Test(enabled = false, priority = 7)
 	public void validateEmailInvoiceAction() {
 		login = new LoginPage(driver);
-		webbrowser = new WebBrowserUtils();
 		home = new HomePage(driver);
 		orderandreparation = new OrderAndReparationPage(driver);
 		wait = new WaitUtils();
-		constants = new AutomationConstants();
 		propertyutil = new PropertyUtils();
-		generic=new GenericUtils();
 		prop = PropertyUtils.getProperty("config.properties");
 		excelutils = new ExcelUtils();
 		home = login.login(prop.getProperty("username"), prop.getProperty("password"));
@@ -341,13 +282,10 @@ public class OrderAndReparationPageTest extends AutomationBase {
 	@Test(enabled = false, priority = 8, retryAnalyzer = com.analyzer.RetryAnalyzer.class)
 	public void validateColumnVisibilityInReparationTable() {
 		login = new LoginPage(driver);
-		webbrowser = new WebBrowserUtils();
 		home = new HomePage(driver);
 		orderandreparation = new OrderAndReparationPage(driver);
 		wait = new WaitUtils();
-		constants = new AutomationConstants();
 		propertyutil = new PropertyUtils();
-		generic=new GenericUtils();
 		prop = PropertyUtils.getProperty("config.properties");
 		excelutils = new ExcelUtils();
 		home = login.login(prop.getProperty("username"), prop.getProperty("password"));
