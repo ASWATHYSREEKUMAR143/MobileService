@@ -6,10 +6,10 @@
     <classes>
       <!-- <class name="com.test.LoginTest"/>
       <class name="com.test.HomePageTest"/>
-       <class name="com.test.QuantityAlertPageTest"/>
-        <class name="com.test.OrderAndReparationPageTest"/>-->
+       <class name="com.test.QuantityAlertPageTest"/>-->
+        <class name="com.test.OrderAndReparationPageTest"/>
      
-     <class name="com.test.CustomersPageTest"/>
+    <!--  <class name="com.test.CustomersPageTest"/>-->
      
       
      
