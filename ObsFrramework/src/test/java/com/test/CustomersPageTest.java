@@ -2,9 +2,7 @@ package com.test;
 
 import java.util.Properties;
 
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -20,8 +18,6 @@ import com.utilities.WaitUtils;
 import com.utilities.WebBrowserUtils;
 
 public class CustomersPageTest extends AutomationBase {
-
-	//WebDriver driver;
 	WebBrowserUtils webbrowser;
 	WaitUtils wait;
 	LoginPage login;
@@ -31,28 +27,10 @@ public class CustomersPageTest extends AutomationBase {
 	Properties prop;
 	ExcelUtils excelutils;
 
-	/*@BeforeMethod
-	public void preRun() throws Exception {
-		driver = getDriver();
+	@Test(enabled = true, priority = 1, dataProvider = "addclient", dataProviderClass = DataSupplier.class,groups=("smoke"))
+	public void validateCustomersPage(String name, String company, String address, String city, String phn,
+			String mail) {
 		login = new LoginPage(driver);
-		webbrowser = new WebBrowserUtils();
-		home = new HomePage(driver);
-		customers = new CustomersPage(driver);
-		wait = new WaitUtils();
-		propertyutil = new PropertyUtils();
-		prop = PropertyUtils.getProperty("config.properties");
-		excelutils = new ExcelUtils();
-		home = login.login(prop.getProperty("username"), prop.getProperty("password"));
-		customers = home.navigateToClientPage();
-		wait.toApplyImplicitWait(driver, 10);
-
-	}*/
-
-	@Test(enabled = true, priority = 1,dataProvider = "addclient", dataProviderClass = DataSupplier.class)
-	public void validateCustomersPage(String name,String company,String address,String city,String phn,String mail) {
-		login = new LoginPage(driver);
-		//home = new HomePage(driver);
-		//customers = new CustomersPage(driver);
 		wait = new WaitUtils();
 		propertyutil = new PropertyUtils();
 		prop = PropertyUtils.getProperty("config.properties");
@@ -82,16 +60,15 @@ public class CustomersPageTest extends AutomationBase {
 		soft.assertTrue(customers.isCommentFieldInAddClientDisplayed(), AutomationConstants.FieldCheck);
 		soft.assertTrue(customers.isAddClientGoBcktBtnDisplayed(), AutomationConstants.FieldCheck);
 		soft.assertTrue(customers.isAddClientSubmtBtnDisplayed(), AutomationConstants.FieldCheck);
-		customers.enterClientName(name);//excelutils.readStringData("Customers", 3, 2)
-		customers.enterCompanyName(company);//excelutils.readStringData("Customers", 4, 2)
-		customers.enterAddress(address);//excelutils.readStringData("Customers", 6, 2)
-		customers.enterCity(city);//excelutils.readStringData("Customers", 7, 2)
-		customers.enterTelPhnNmbr(phn);//excelutils.readStringData("Customers", 9, 2)
-		customers.enterEmail(mail);//excelutils.readStringData("Customers", 10, 2)
+		customers.enterClientName(name);// excelutils.readStringData("Customers", 3, 2)
+		customers.enterCompanyName(company);// excelutils.readStringData("Customers", 4, 2)
+		customers.enterAddress(address);// excelutils.readStringData("Customers", 6, 2)
+		customers.enterCity(city);// excelutils.readStringData("Customers", 7, 2)
+		customers.enterTelPhnNmbr(phn);// excelutils.readStringData("Customers", 9, 2)
+		customers.enterEmail(mail);// excelutils.readStringData("Customers", 10, 2)
 		customers.clickOnAddClientSubmtBtn();
 		customers.searchName(name);
-		soft.assertEquals(customers.toGetTheTextFromNameCell(), name,
-				AutomationConstants.ResultCheck);
+		soft.assertEquals(customers.toGetTheTextFromNameCell(), name, AutomationConstants.ResultCheck);
 
 		// wait.toApplyExplicitWaitTillElmntIsVisible(driver, 20,
 		// customers.closebtn_clientpg);
@@ -103,11 +80,9 @@ public class CustomersPageTest extends AutomationBase {
 
 	}
 
-	@Test(enabled = false, priority = 2)
+	@Test(enabled = true, priority = 2)
 	public void validateClientTable() {
 		login = new LoginPage(driver);
-		//home = new HomePage(driver);
-		//customers = new CustomersPage(driver);
 		wait = new WaitUtils();
 		propertyutil = new PropertyUtils();
 		prop = PropertyUtils.getProperty("config.properties");
@@ -136,11 +111,9 @@ public class CustomersPageTest extends AutomationBase {
 
 	}
 
-	@Test(enabled = false, priority = 3)
+	@Test(enabled = true, priority = 3)
 	public void validateCustomerViewOption() {
 		login = new LoginPage(driver);
-		//home = new HomePage(driver);
-		//customers = new CustomersPage(driver);
 		wait = new WaitUtils();
 		propertyutil = new PropertyUtils();
 		prop = PropertyUtils.getProperty("config.properties");
@@ -167,11 +140,9 @@ public class CustomersPageTest extends AutomationBase {
 
 	}
 
-	@Test(enabled = false, priority = 4)
+	@Test(enabled = true, priority = 4)
 	public void validateDeleteAction() {
 		login = new LoginPage(driver);
-		//home = new HomePage(driver);
-		//customers = new CustomersPage(driver);
 		wait = new WaitUtils();
 		propertyutil = new PropertyUtils();
 		prop = PropertyUtils.getProperty("config.properties");
@@ -193,11 +164,9 @@ public class CustomersPageTest extends AutomationBase {
 
 	}
 
-	@Test(enabled = false, priority = 5)
+	@Test(enabled = true, priority = 5)
 	public void validateViewClientRepairOption() {
 		login = new LoginPage(driver);
-		//home = new HomePage(driver);
-		//customers = new CustomersPage(driver);
 		wait = new WaitUtils();
 		propertyutil = new PropertyUtils();
 		prop = PropertyUtils.getProperty("config.properties");
@@ -218,8 +187,6 @@ public class CustomersPageTest extends AutomationBase {
 	@Test(enabled = true, priority = 6, dataProvider = "clientupdate", dataProviderClass = DataSupplier.class)
 	public void validateEditClientOption(String city, String poscode, String phnnmbr, String mailid) {
 		login = new LoginPage(driver);
-		//home = new HomePage(driver);
-		//customers = new CustomersPage(driver);
 		wait = new WaitUtils();
 		propertyutil = new PropertyUtils();
 		prop = PropertyUtils.getProperty("config.properties");
@@ -261,11 +228,9 @@ public class CustomersPageTest extends AutomationBase {
 		soft.assertAll();
 	}
 
-	@Test(enabled = false, priority = 7)
+	@Test(enabled = true, priority = 7)
 	public void validateDeleteClientOption() {
 		login = new LoginPage(driver);
-		//home = new HomePage(driver);
-		//customers = new CustomersPage(driver);
 		wait = new WaitUtils();
 		propertyutil = new PropertyUtils();
 		prop = PropertyUtils.getProperty("config.properties");
@@ -283,11 +248,9 @@ public class CustomersPageTest extends AutomationBase {
 
 	}
 
-	@Test(enabled = false, priority = 8)
+	@Test(enabled = true, priority = 8)
 	public void validateMultipleClientRemovel() {
 		login = new LoginPage(driver);
-		//home = new HomePage(driver);
-		//customers = new CustomersPage(driver);
 		wait = new WaitUtils();
 		propertyutil = new PropertyUtils();
 		prop = PropertyUtils.getProperty("config.properties");
